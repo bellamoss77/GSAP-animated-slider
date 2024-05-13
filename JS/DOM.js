@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.slideshow-container');
-    const nextBtn = document.querySelector('.nav-next');
-    const prevBtn = document.querySelector('.nav-prev');
     const images = [
         {
             src: 'https://github.com/bellamoss77/GSAP-animated-slider/blob/main/images/Apollo-Athena_1.png?raw=true',
@@ -153,11 +151,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const populateSlides = () => {
         images.forEach(image => {
             const slide = document.createElement('li');
-            slide.className = '.slideshow-slide';
+            slide.className = 'slideshow-slide';
 
             const slideImg = document.createElement('figure');
-            slideImg.className = '.slideshow-img';
-            slideImg.setAttribute('style', `background-image: url(${image.src});`);
+            slideImg.className = 'slideshow-img';
+            slideImg.style.backgroundImage = `url(${image.src})`;
 
 
             const titleWrap = document.createElement('div');
@@ -177,9 +175,10 @@ document.addEventListener('DOMContentLoaded', () => {
             slide.appendChild(titleWrap);
             container.appendChild(slide);
         })
-        container.appendChild(nextBtn);
-        container.appendChild(prevBtn)
     }
 
     populateSlides();
+
+    const event = new customEvent('SlidesPopulated');
+    document.dispatchEvent(event);
 })
