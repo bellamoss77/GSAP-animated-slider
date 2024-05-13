@@ -157,7 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const slideImg = document.createElement('figure');
             slideImg.className = '.slideshow-img';
-            slideImg.setAttribute('style', 'background-image: url(`${image.src}`)');
+            slideImg.setAttribute('style', `background-image: url(${image.src});`);
+
 
             const titleWrap = document.createElement('div');
             titleWrap.className = 'title-wrap';
